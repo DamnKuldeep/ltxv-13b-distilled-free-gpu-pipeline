@@ -32,51 +32,51 @@ Every clip below was generated on a free Kaggle T4×2 notebook. No paid compute,
 <tr>
 <td width="50%" align="center">
 <strong>Snorricam · Character Walk</strong><br>
-<video src="https://github.com/DamnKuldeep/ltxv-13b-distilled-free-gpu-pipeline/raw/main/results/Character_Walk.mp4" controls muted width="100%"></video>
+<img src="results/Character_Walk.gif" width="100%" alt="Character Walk — Snorricam LoRA">
 </td>
 <td width="50%" align="center">
 <strong>Base T2V · City Timelapse</strong><br>
-<video src="https://github.com/DamnKuldeep/ltxv-13b-distilled-free-gpu-pipeline/raw/main/results/City_Timelapse.mp4" controls muted width="100%"></video>
+<img src="results/City_Timelapse.gif" width="100%" alt="City Timelapse — Base T2V">
 </td>
 </tr>
 <tr>
 <td align="center">
 <strong>Flying · Coastal Cliffs</strong><br>
-<video src="https://github.com/DamnKuldeep/ltxv-13b-distilled-free-gpu-pipeline/raw/main/results/Coastal_Cliff.mp4" controls muted width="100%"></video>
+<img src="results/Coastal_Cliff.gif" width="100%" alt="Coastal Cliffs — Flying LoRA">
 </td>
 <td align="center">
 <strong>Bullet Time · Martial Arts</strong><br>
-<video src="https://github.com/DamnKuldeep/ltxv-13b-distilled-free-gpu-pipeline/raw/main/results/Martial_Arts_Freeze.mp4" controls muted width="100%"></video>
+<img src="results/Martial_Arts_Freeze.gif" width="100%" alt="Martial Arts — Bullet Time LoRA">
 </td>
 </tr>
 <tr>
 <td align="center">
 <strong>Arcane Style · Jinx</strong><br>
-<video src="https://github.com/DamnKuldeep/ltxv-13b-distilled-free-gpu-pipeline/raw/main/results/Headphones_jinx.mp4" controls muted width="100%"></video>
+<img src="results/Headphones_jinx.gif" width="100%" alt="Jinx with Headphones — Arcane LoRA">
 </td>
 <td align="center">
 <strong>Character · Jinx Portrait</strong><br>
-<video src="https://github.com/DamnKuldeep/ltxv-13b-distilled-free-gpu-pipeline/raw/main/results/Jinx.mp4" controls muted width="100%"></video>
+<img src="results/Jinx.gif" width="100%" alt="Jinx Portrait — Character LoRA">
 </td>
 </tr>
 <tr>
 <td align="center">
 <strong>Wallace &amp; Gromit · Kitchen</strong><br>
-<video src="https://github.com/DamnKuldeep/ltxv-13b-distilled-free-gpu-pipeline/raw/main/results/Kitchen_scene_walgro.mp4" controls muted width="100%"></video>
+<img src="results/Kitchen_scene_walgro.gif" width="100%" alt="Kitchen Scene — Wallace & Gromit LoRA">
 </td>
 <td align="center">
 <strong>Wallace &amp; Gromit · Garden</strong><br>
-<video src="https://github.com/DamnKuldeep/ltxv-13b-distilled-free-gpu-pipeline/raw/main/results/Walgro_Garden.mp4" controls muted width="100%"></video>
+<img src="results/Walgro_Garden.gif" width="100%" alt="Garden Scene — Wallace & Gromit LoRA">
 </td>
 </tr>
 <tr>
 <td align="center">
 <strong>Arcane Style · Rooftop</strong><br>
-<video src="https://github.com/DamnKuldeep/ltxv-13b-distilled-free-gpu-pipeline/raw/main/results/RooftopSky.mp4" controls muted width="100%"></video>
+<img src="results/RooftopSky.gif" width="100%" alt="Rooftop Scene — Arcane LoRA">
 </td>
 <td align="center">
 <strong>Base T2V · Train Window</strong><br>
-<video src="https://github.com/DamnKuldeep/ltxv-13b-distilled-free-gpu-pipeline/raw/main/results/Train_window.mp4" controls muted width="100%"></video>
+<img src="results/Train_window.gif" width="100%" alt="Train Window — Base T2V">
 </td>
 </tr>
 </table>
