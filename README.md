@@ -85,12 +85,12 @@ Every clip below was generated on a free Kaggle T4×2 notebook. No paid compute,
 
 ## Features
 
-- **13B model on free GPUs** — NF4 quantization compresses ~40 GB of weights to ~10 GB, fitting entirely on a Tesla T4.
-- **22 LoRA adapters** — Camera effects (bullet time, snorricam, 360°, flying), art styles (Arcane, Shinkai, Wallace & Gromit), and visual effects (melt, cakeify, explosion). Hot-swappable between runs.
-- **15s native / 30s+ chunked** — Standard generation up to 15 seconds. Autoregressive mode extends to 30+ seconds with 33-frame overlap.
-- **AI prompt enhancement** — NVIDIA NIM Llama-3.3-70B rewrites your rough descriptions into detailed cinematic prompts.
-- **Gradio UI** — Full web interface. Pick a LoRA, type a prompt, click generate.
-- **Dual-GPU memory split** — Transformer + LoRA on GPU 0, text encoder + VAE decode on GPU 1.
+- **13B model on free GPUs** — NF4 quantization compresses ~26 GB of transformer weights to ~8.5 GB, fitting entirely on a Tesla T4 GPU0.
+- **22 LoRA adapters** — Camera effects (bullet time, snorricam, 360°, flying), art styles (Arcane, Shinkai, Wallace & Gromit), and visual effects (melt, cakeify, explosion). Hot-swappable between runs(I would love to add more of these).
+- **15s native / 30s+ chunked** — Standard generation up to 15 seconds. Autoregressive mode extends to 30+ seconds with 33-frame overlap(could be extended more with proper dna agent and enabling more chunks).
+- **AI prompt enhancement** — NVIDIA NIM Llama-3.3-70B rewrites your rough descriptions into detailed cinematic prompts(There could be some really good scope of improvement here).
+- **Gradio UI** — Full web interface. Pick a LoRA, type a prompt, click generate(I did not give much time to ui, it could be improved by taking inspiration from Wan2GP(https://github.com/deepbeepmeep/Wan2GP/blob/main/wgp.py).
+- **Dual-GPU memory split** — Transformer + LoRA on GPU 0, text encoder + VAE decode on GPU 1(I would suggest to make minimum changes to the resource management as things are more prone to dependencies or cuda errors.
 
 ---
 
