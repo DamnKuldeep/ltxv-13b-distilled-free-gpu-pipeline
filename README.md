@@ -7,7 +7,7 @@ Run the full 13-billion parameter LTX-Video model on **free Kaggle T4 GPUs**. Te
 [![License](https://img.shields.io/badge/License-Apache_2.0-blue?style=flat)](LICENSE)
 [![Stars](https://img.shields.io/github/stars/DamnKuldeep/ltxv-13b-distilled-free-gpu-pipeline?style=flat&color=6f42c1)](https://github.com/DamnKuldeep/ltxv-13b-distilled-free-gpu-pipeline/stargazers)
 
-**→** [Open the Notebook](https://www.kaggle.com/code/damnyadav/ltxv-13b-distilled-free-gpu-pipeline) · [Pre-cached Model Dataset](https://www.kaggle.com/datasets/damnyadav/ltxv13b-distilled-cache)
+**→** [Open the Notebook](https://www.kaggle.com/code/damnyadav/ltx-13b-distilled) · [Pre-cached Model Dataset](https://www.kaggle.com/datasets/damnyadav/ltxv13b-distilled-cache)
 
 ---
 
