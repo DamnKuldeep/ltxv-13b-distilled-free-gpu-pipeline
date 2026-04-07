@@ -35,8 +35,8 @@ Every clip below was generated on a free Kaggle T4×2 notebook. No paid compute,
 <img src="results/Character_Walk.gif" width="100%" alt="Character Walk — Snorricam LoRA">
 </td>
 <td width="50%" align="center">
-<strong>Base T2V · City Timelapse</strong><br>
-<img src="results/City_Timelapse.gif" width="100%" alt="City Timelapse — Base T2V">
+<strong>Flying · City Timelapse</strong><br>
+<img src="results/City_Timelapse.gif" width="100%" alt="City Timelapse — Flying LoRA">
 </td>
 </tr>
 <tr>
@@ -51,12 +51,12 @@ Every clip below was generated on a free Kaggle T4×2 notebook. No paid compute,
 </tr>
 <tr>
 <td align="center">
-<strong>Arcane Style · Jinx</strong><br>
-<img src="results/Headphones_jinx.gif" width="100%" alt="Jinx with Headphones — Arcane LoRA">
+<strong> Base T2V· Jinx</strong><br>
+<img src="results/Headphones_jinx.gif" width="100%" alt="Jinx with Headphones — Base T2V">
 </td>
 <td align="center">
-<strong>Character · Jinx Portrait</strong><br>
-<img src="results/Jinx.gif" width="100%" alt="Jinx Portrait — Character LoRA">
+<strong>Arcane Jinx · Jinx Portrait</strong><br>
+<img src="results/Jinx.gif" width="100%" alt="Jinx Portrait — Arcane Jinx LoRA">
 </td>
 </tr>
 <tr>
@@ -71,12 +71,12 @@ Every clip below was generated on a free Kaggle T4×2 notebook. No paid compute,
 </tr>
 <tr>
 <td align="center">
-<strong>Arcane Style · Rooftop</strong><br>
-<img src="results/RooftopSky.gif" width="100%" alt="Rooftop Scene — Arcane LoRA">
+<strong>Shinkai Anime · Rooftop</strong><br>
+<img src="results/RooftopSky.gif" width="100%" alt="Rooftop Scene — Shinkai Anime LoRA">
 </td>
 <td align="center">
-<strong>Base T2V · Train Window</strong><br>
-<img src="results/Train_window.gif" width="100%" alt="Train Window — Base T2V">
+<strong>Shinkai Anime · Train Window</strong><br>
+<img src="results/Train_window.gif" width="100%" alt="Train Window — Shinkai Anime LoRA">
 </td>
 </tr>
 </table>
