@@ -1,229 +1,289 @@
-<div align="center">
+# LTX-Video 13B — Free GPU Pipeline
 
-<img src="assets/logo.png" width="120" alt="LTXV-13B Logo">
+Run the full 13-billion parameter LTX-Video model on **free Kaggle T4 GPUs**. Text-to-video, image-to-video, 22 swappable LoRA styles, and LLM prompt enhancement — zero cost, no A100 required.
 
-# LTX-Video 13B • Free Gen Pipeline
+[![Open in Kaggle](https://img.shields.io/badge/Open_in-Kaggle-20BEFF?style=flat&logo=kaggle)](https://www.kaggle.com/code/damnyadav/ltxv-13b-distilled-free-gpu-pipeline)
+[![Model](https://img.shields.io/badge/%F0%9F%A4%97_Model-LTX--Video_13B-FFD21E?style=flat)](https://huggingface.co/Lightricks/LTX-Video-0.9.8-13B-distilled)
+[![License](https://img.shields.io/badge/License-Apache_2.0-blue?style=flat)](LICENSE)
+[![Stars](https://img.shields.io/github/stars/DamnKuldeep/ltxv-13b-distilled-free-gpu-pipeline?style=flat&color=6f42c1)](https://github.com/DamnKuldeep/ltxv-13b-distilled-free-gpu-pipeline/stargazers)
 
-### 15s Native • 30s+ Chunked • 22 LoRAs • Dual Tesla T4
-
-[![Python 3.10+](https://img.shields.io/badge/Python-3.10+-3776AB?style=flat-square&logo=python&logoColor=white)](https://www.python.org/)
-[![License: Apache 2.0](https://img.shields.io/badge/License-Apache%202.0-D22128?style=flat-square&logo=apache&logoColor=white)](LICENSE)
-[![Kaggle T4×2](https://img.shields.io/badge/GPU-Kaggle%20T4×2-F5D142?style=flat-square&logo=kaggle&logoColor=black)](https://www.kaggle.com/)
-[![HuggingFace](https://img.shields.io/badge/%F0%9F%A4%97-LTX--Video%2013B-FFD21E?style=flat-square)](https://huggingface.co/Lightricks/LTX-Video-0.9.8-13B-distilled)
-[![Gradio](https://img.shields.io/badge/UI-Gradio-orange?style=flat-square&logo=gradio&logoColor=white)](https://gradio.app)
-[![Stars](https://img.shields.io/github/stars/DamnKuldeep/ltxv-13b-distilled-free-gpu-pipeline?style=flat-square&color=6f42c1)](https://github.com/DamnKuldeep/ltxv-13b-distilled-free-gpu-pipeline/stargazers)
-
-<img src="assets/banner.png" width="100%" alt="LTXV-13B Banner">
-
-**The only free, open-source pipeline in the world capable of running 13-billion parameter video diffusion with 22 hot-swappable LoRAs and LLM-powered prompt enhancement on zero-cost hardware.**
-
-[🚀 Open in Kaggle](https://www.kaggle.com/code/damnyadav/ltxv-13b-distilled-free-gpu-pipeline) • [📁 Model Cache](https://www.kaggle.com/datasets/damnyadav/ltxv13b-distilled-cache) • [⭐ Star repo](#)
+**→** [Open the Notebook](https://www.kaggle.com/code/damnyadav/ltxv-13b-distilled-free-gpu-pipeline) · [Pre-cached Model Dataset](https://www.kaggle.com/datasets/damnyadav/ltxv13b-distilled-cache)
 
 ---
 
-</div>
+## Contents
 
-## 📑 Table of Contents
-
-- [✨ High-Fidelity Results](#-high-fidelity-results)
-- [🔥 Capability Matrix](#-capability-matrix)
-- [🏗️ Technical Architecture](#-technical-architecture)
-- [🎭 LoRA registry](#-lora-registry)
-- [🛠️ Setup Guide](#-setup-guide)
-- [📖 Usage Guide](#-usage-guide)
-- [⚠️ Constraints](#-constraints)
-- [🔬 Technical Reference](#-technical-reference)
+- [Results](#results)
+- [Features](#features)
+- [Architecture](#architecture)
+- [LoRA Adapters](#lora-adapters)
+- [Getting Started](#getting-started)
+- [Usage](#usage)
+- [Technical Reference](#technical-reference)
+- [Limitations](#limitations)
 
 ---
 
-## ✨ High-Fidelity Results
+## Results
 
-<div align="center">
+Every clip below was generated on a free Kaggle T4×2 notebook. No paid compute, no cloud credits.
 
-**[Showcase A] &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; [Showcase B]**
+<table>
+<tr>
+<td width="50%" align="center">
 
-<video src="results/Character_Walk.mp4" width="48%" autoplay loop muted playsinline></video>
-<video src="results/City_Timelapse.mp4" width="48%" autoplay loop muted playsinline></video>
+![Character Walk — Snorricam LoRA](results/Character_Walk.mp4)
 
-<video src="results/Coastal_Cliff.mp4" width="48%" autoplay loop muted playsinline></video>
-<video src="results/Martial_Arts_Freeze.mp4" width="48%" autoplay loop muted playsinline></video>
+**Snorricam** · Character Walk
 
-<video src="results/Headphones_jinx.mp4" width="48%" autoplay loop muted playsinline></video>
-<video src="results/Jinx.mp4" width="48%" autoplay loop muted playsinline></video>
+</td>
+<td width="50%" align="center">
 
-<video src="results/Kitchen_scene_walgro.mp4" width="48%" autoplay loop muted playsinline></video>
-<video src="results/Walgro_Garden.mp4" width="48%" autoplay loop muted playsinline></video>
+![City Timelapse — Base T2V](results/City_Timelapse.mp4)
 
-<video src="results/RooftopSky.mp4" width="48%" autoplay loop muted playsinline></video>
-<video src="results/Train_window.mp4" width="48%" autoplay loop muted playsinline></video>
+**Base T2V** · City Timelapse
 
-</div>
+</td>
+</tr>
+<tr>
+<td align="center">
+
+![Coastal Cliffs — Flying LoRA](results/Coastal_Cliff.mp4)
+
+**Flying** · Coastal Cliffs
+
+</td>
+<td align="center">
+
+![Martial Arts — Bullet Time LoRA](results/Martial_Arts_Freeze.mp4)
+
+**Bullet Time** · Martial Arts
+
+</td>
+</tr>
+<tr>
+<td align="center">
+
+![Jinx with Headphones — Arcane LoRA](results/Headphones_jinx.mp4)
+
+**Arcane Style** · Jinx
+
+</td>
+<td align="center">
+
+![Jinx Portrait — Character LoRA](results/Jinx.mp4)
+
+**Character** · Jinx Portrait
+
+</td>
+</tr>
+<tr>
+<td align="center">
+
+![Kitchen Scene — Wallace & Gromit LoRA](results/Kitchen_scene_walgro.mp4)
+
+**Wallace & Gromit** · Kitchen
+
+</td>
+<td align="center">
+
+![Garden Scene — Wallace & Gromit LoRA](results/Walgro_Garden.mp4)
+
+**Wallace & Gromit** · Garden
+
+</td>
+</tr>
+<tr>
+<td align="center">
+
+![Rooftop Scene — Arcane LoRA](results/RooftopSky.mp4)
+
+**Arcane Style** · Rooftop
+
+</td>
+<td align="center">
+
+![Train Window — Base T2V](results/Train_window.mp4)
+
+**Base T2V** · Train Window
+
+</td>
+</tr>
+</table>
 
 ---
 
-## 🔥 Capability Matrix
+## Features
 
-| Feature | Production Baseline | LTXV-13B Free Pipeline |
-| :--- | :--- | :--- |
-| **Model Scaling** | 40GB VRAM (A100/H100) | **8GB NF4** (Tesla T4) |
-| **Adapter System** | Static / Low-VRAM only | **22 Hot-swappable LoRAs** |
-| **Max Duration** | ~6s @ 8fps (Free) | **15s Native / 30s+ Chunked** |
-| **Prompt Engineering** | Manual / Brittle | **NVIDIA NIM Agent** (LLM-Enhanced) |
-| **Infrastructure** | Large Cluster | **Dual Tesla T4** (Free) |
+- **13B model on free GPUs** — NF4 quantization compresses ~40 GB of weights to ~10 GB, fitting entirely on a Tesla T4.
+- **22 LoRA adapters** — Camera effects (bullet time, snorricam, 360°, flying), art styles (Arcane, Shinkai, Wallace & Gromit), and visual effects (melt, cakeify, explosion). Hot-swappable between runs.
+- **15s native / 30s+ chunked** — Standard generation up to 15 seconds. Autoregressive mode extends to 30+ seconds with 33-frame overlap.
+- **AI prompt enhancement** — NVIDIA NIM Llama-3.3-70B rewrites your rough descriptions into detailed cinematic prompts.
+- **Gradio UI** — Full web interface. Pick a LoRA, type a prompt, click generate.
+- **Dual-GPU memory split** — Transformer + LoRA on GPU 0, text encoder + VAE decode on GPU 1.
 
 ---
 
-## 🏗️ Technical Architecture
+## Architecture
 
-### 1. Generation Lifecycle
+### Pipeline Flow
+
+```
+Prompt → LLM Enhancement (NVIDIA NIM) → LoRA Injection → 7-Step Denoise → VAE Decode → MP4
+```
 
 ```mermaid
-%%{init: {'theme': 'dark', 'themeVariables': { 'primaryColor': '#6f42c1', 'secondaryColor': '#2ea44f', 'tertiaryColor': '#d73a49' }}}%%
 graph LR
-    User([User Intent]) --> NIM{LLM Director}
-    NIM --> LoRA[Adapter Injector]
-    LoRA --> Denoise[7-Step Distilled Denoising]
-    Denoise --> VAE[Spatio-Temporal Decode]
-    VAE --> Export([MP4 Output])
-    
-    style NIM fill:#6f42c1,stroke:#fff,stroke-width:2px;
-    style Denoise fill:#d73a49,stroke:#fff,stroke-width:2px;
-    style VAE fill:#2ea44f,stroke:#fff,stroke-width:2px;
+    A[Your Prompt] --> B[LLM Director]
+    B --> C[LoRA Inject]
+    C --> D[Denoise ×7]
+    D --> E[VAE Decode]
+    E --> F[MP4]
 ```
 
-### 2. Physical Memory Mapping
+### Memory Layout (Dual T4)
 
-```mermaid
-%%{init: {'theme': 'dark'}}%%
-graph TD
-    subgraph GPU0 ["cuda:0 (15GB Tesla T4)"]
-        T[Transformer NF4 ~10.4GB]
-        V[VAE Buffer ~0.4GB]
-        L[LoRA Slots ~0.8GB]
-        F0[Free ~3.4GB]
-    end
-    subgraph GPU1 ["cuda:1 (15GB Tesla T4)"]
-        T5[T5-XXL NF4 ~4.5GB]
-        VD[VAE Decode Target ~8.0GB]
-        F1[Free ~2.5GB]
-    end
-```
+| GPU | Component | VRAM |
+|:---|:---|---:|
+| `cuda:0` | Transformer (NF4) | ~10.4 GB |
+| `cuda:0` | Active LoRA adapter | ~0.8 GB |
+| `cuda:0` | VAE encoder buffer | ~0.4 GB |
+| `cuda:0` | *Free headroom* | ~3.4 GB |
+| `cuda:1` | T5-XXL encoder (NF4) | ~4.5 GB |
+| `cuda:1` | VAE decode target | ~8.0 GB |
+| `cuda:1` | *Free headroom* | ~2.5 GB |
 
-### 3. Progressive LoRA Lifecycle
+### LoRA Hot-Swap Cycle
 
-```mermaid
-%%{init: {'theme': 'dark'}}%%
-sequenceDiagram
-    participant D as Disk Cache
-    participant C as Converter
-    participant G as GPU (cuda:0)
-    D->>C: Load .safetensors (ComfyUI)
-    C->>C: Map keys to Diffusers spec
-    C->>G: Inject Peft Layers
-    G->>G: SET_ADAPTER (w=1.0)
-    G->>G: RUN_INFERENCE
-    G->>G: DELETE_ADAPTER
-    G->>G: GC.COLLECT (VRAM Reset)
-```
+Each adapter follows a strict **load → use → purge** cycle to prevent VRAM leaks:
+
+1. Load `.safetensors` from local disk cache
+2. Remap ComfyUI weight keys → Diffusers format
+3. Inject PEFT layers into the transformer on `cuda:0`
+4. Run inference at adapter weight = 1.0
+5. Delete adapter → `gc.collect()` → `torch.cuda.empty_cache()`
+
+Only one adapter is active at a time. Switching LoRAs between runs adds ~5 seconds of overhead.
 
 ---
 
-## 🎭 LoRA Registry
+## LoRA Adapters
 
 <details>
-<summary><b>Click to expand full LoRA Registry (22 adapters)</b></summary>
+<summary><strong>All 22 adapters (click to expand)</strong></summary>
 
-| ID | Name | Trigger | Category | Mode | Description |
-| :--- | :--- | :--- | :--- | :--- | :--- |
-| `bullet_time` | 🎬 Bullet Time | `bullet-time` | Camera | T2V/I2V | Matrix-style freeze + 360° orbital camera |
-| `through_object` | 🎬 Through Object | `through-object` | Camera | T2V | Camera passes through solid surfaces seamlessly |
-| `snorricam` | 🎬 Snorricam | `snorricam` | Camera | T2V/I2V | Body-mounted camera, subject perfectly centered |
-| `equirect360` | 🎬 360° Equirect | `360-equirectangular` | Camera | T2V | Panoramic equirectangular landscape generation |
-| `flying` | 🎬 Flying | `flying` | Camera | T2V | Smooth aerial/drone cinematic motion |
-| `wallace_gromit` | 🎨 Wallace & Gromit | `walgro style` | Style | T2V/I2V | Aardman claymation stop-motion aesthetic |
-| `arcane` | 🎨 Arcane Style | `csetiarcane` | Style | T2V/I2V | Painterly stylized animation with rim lighting |
-| `shinkai_anime`| 🎨 Shinkai Anime | `sh1nka1 style` | Style | T2V/I2V | Makoto Shinkai aesthetic (Your Name/Suzume) |
-| `fat_elvis` | 🕺 Fat Elvis | `FATELVIS` | Style | T2V/I2V | Elvis character transformation |
-| `cakeify` | ✨ Cakeify | `CAKEIFY` | Effect | T2V/I2V | Transforms objects into realistic hyper-cakes |
-| `melt` | ✨ Melt | `M3LTYX` | Effect | T2V/I2V | Objects melt like wax into pooling liquid |
-| `face_punch` | ✨ Face Punch | `Face_punch` | Effect | I2V | Impact shockwave effect on portraits |
-| `explosion` | ✨ Building Blast | `Building_explosion` | Effect | T2V | High-fidelity building destruction |
-| `cargrip` | ✨ Car Grip | `CarGrip` | Effect | T2V | Drifting with tire smoke and tight handling |
-| `amgery` | 😤 Amgery | `AMGERY` | Expression| I2V | Looney Tunes exaggerated anger |
+<br>
+
+### Camera Effects
+
+| Name | Trigger Keyword | Mode | What it does |
+|:---|:---|:---|:---|
+| Bullet Time | `bullet-time` | T2V/I2V | Matrix-style freeze + 360° orbital |
+| Through Object | `through-object` | T2V | Camera passes through solid surfaces |
+| Snorricam | `snorricam` | T2V/I2V | Body-mounted camera, subject centered |
+| 360° Equirect | `360-equirectangular` | T2V | Panoramic equirectangular output |
+| Flying | `flying` | T2V | Smooth aerial/drone motion |
+
+### Art Styles
+
+| Name | Trigger Keyword | Mode | What it does |
+|:---|:---|:---|:---|
+| Wallace & Gromit | `walgro style` | T2V/I2V | Aardman claymation aesthetic |
+| Arcane | `csetiarcane` | T2V/I2V | Painterly animation with rim lighting |
+| Shinkai Anime | `sh1nka1 style` | T2V/I2V | Makoto Shinkai look (Your Name, Suzume) |
+| Fat Elvis | `FATELVIS` | T2V/I2V | Elvis character transformation |
+
+### Visual Effects
+
+| Name | Trigger Keyword | Mode | What it does |
+|:---|:---|:---|:---|
+| Cakeify | `CAKEIFY` | T2V/I2V | Objects become hyper-realistic cakes |
+| Melt | `M3LTYX` | T2V/I2V | Objects melt like wax |
+| Face Punch | `Face_punch` | I2V | Impact shockwave on portraits |
+| Building Blast | `Building_explosion` | T2V | Building destruction |
+| Car Grip | `CarGrip` | T2V | Drifting with tire smoke |
+| Amgery | `AMGERY` | I2V | Looney Tunes exaggerated anger |
+
+*Plus 7 additional community adapters included in the notebook.*
 
 </details>
 
 ---
 
-## 🛠️ Setup Guide
+## Getting Started
 
-### 1. Requirements
+### What You Need
 
-- **Kaggle Account**: [Sign up here](https://kaggle.com) (Phone verification required for GPU).
-- **Hardware Selection**: Set Accelerator to **GPU T4 ×2**.
-- **Model Access**: Agree to terms on [Lightricks LTX-Video 0.9.8](https://huggingface.co/Lightricks/LTX-Video-0.9.8-13B-distilled).
+1. **Kaggle account** — [Sign up](https://kaggle.com) and verify your phone number (required for GPU access).
+2. **HuggingFace token** — Accept the [LTX-Video model terms](https://huggingface.co/Lightricks/LTX-Video-0.9.8-13B-distilled), then grab your [access token](https://huggingface.co/settings/tokens).
+3. **NVIDIA NIM key** — Free API key from [build.nvidia.com](https://build.nvidia.com) for prompt enhancement.
 
-### 2. Environment Variables (Secrets)
+### Add Secrets in Kaggle
 
-Add these to your Kaggle Notebook via **Add-ons -> Secrets**:
+Go to **Add-ons → Secrets** in your notebook and add:
 
-| Key | Value | Purpose |
-| :--- | :--- | :--- |
-| `HF_TOKEN` | [HuggingFace User Access Token](https://huggingface.co/settings/tokens) | Repository Access |
-| `NIM_API_KEY` | [NVIDIA NIM API Key](https://build.nvidia.com) | AI Prompt Enhancement |
+| Key | Value |
+|:---|:---|
+| `HF_TOKEN` | Your HuggingFace access token |
+| `NIM_API_KEY` | Your NVIDIA NIM API key |
 
-### 3. Accelerating Launch
+### Skip the Download (Optional)
 
-To skip the 10-minute download phase, use the pre-cached dataset:
+The first run downloads ~10 GB of model weights. To cut startup to ~2 minutes:
 
-1. Click **+ Add Data** in your notebook.
-2. Search for: `ltxv13b-distilled-cache` by `damnyadav`.
-3. The notebook will automatically prioritize this cache for ~2 minute startups.
+1. Click **+ Add Data** in your Kaggle notebook
+2. Search for `ltxv13b-distilled-cache` by `damnyadav`
+3. Add it — the notebook automatically detects and uses the cache
 
----
+### Launch
 
-## 📖 Usage Guide
-
-> [!TIP]
-> **Recommended Resolution**: Use **480p** when using LoRAs for the best VRAM stability. 720p works natively without LoRAs.
-
-1. **Select LoRA**: Choose from the dropdown in the Gradio UI.
-2. **Draft Prompt**: Describe your scene naturally (e.g., *"A cyberpunck city in rain"*).
-3. **Enhance**: Click **Enhance Prompt**. The NVIDIA Llama-3.3-70B model will re-engineer your description into a cinematic masterpiece.
-4. **Generate**: Click **Generate Video**. Process takes ~4-6 minutes for a 10s clip.
+Set the notebook accelerator to **GPU T4 ×2**, then **Run All**. The Gradio UI will appear with a public link.
 
 ---
 
-## 🔬 Technical Reference
+## Usage
+
+1. **Pick a LoRA** — Select from the dropdown, or leave as "None" for the base model.
+2. **Write a prompt** — Describe your scene naturally. Doesn't need to be perfect.
+3. **Enhance** — Click "Enhance Prompt". The LLM rewrites it into a detailed cinematic description.
+4. **Generate** — Click "Generate Video". Takes roughly 4–6 minutes for a 10-second clip.
+
+> **Tip:** Stick to **480p** when using LoRAs for stable VRAM. 720p is fine without adapters.
+
+---
+
+## Technical Reference
 
 <details>
-<summary><b>Detailed Framework Constants</b></summary>
+<summary><strong>Pipeline constants and internals</strong></summary>
 
-| Parameter | Value | Description |
-| :--- | :--- | :--- |
-| `MAX_TOKENS` | 128 | T5-XXL Tokenizer Ceiling |
-| `STEPS` | 7 | Distilled non-uniform schedule |
-| `CFG_SCALE` | 1.0 | Guidance-distilled requirement |
-| `CHUNK_FFN` | 512 | Activation peak reduction (8x) |
-| `TAIL_OVERLAP`| 33f | Autoregressive context frames |
+<br>
+
+| Parameter | Value | Purpose |
+|:---|:---|:---|
+| `MAX_TOKENS` | 128 | T5-XXL tokenizer ceiling |
+| `STEPS` | 7 | Distilled non-uniform denoising schedule |
+| `CFG_SCALE` | 1.0 | Guidance-free (distilled model requirement) |
+| `CHUNK_FFN` | 512 | Feed-forward chunking — reduces activation peak by ~8× |
+| `TAIL_OVERLAP` | 33 frames | Autoregressive context window for chunked generation |
+
+The denoising loop uses a non-uniform 7-step schedule optimized for the distilled checkpoint. CFG is pinned at 1.0 because the model was distilled with guidance baked in — raising it produces artifacts, not more detail.
 
 </details>
 
 ---
 
-## ⚠️ Constraints
+## Limitations
 
-- **Quantization**: NF4 compression may result in minor detail loss compared to 40GB FP16 mode.
-- **T5 Limits**: The T5 encoder ignores everything beyond ~65 words. Keep prompts punchy.
-- **VRAM Budget**: Each active LoRA consumes ~805MB. Running 2+ simultaneous LoRAs will likely trigger **OOM**.
+- **Quantization trade-off** — NF4 compression loses some fine-grain detail compared to full FP16 on an A100. Most noticeable in faces and small text.
+- **Prompt length** — The T5 encoder ignores tokens past ~65 words. Keep your prompts focused.
+- **One LoRA at a time** — Each adapter uses ~805 MB of VRAM. Loading two simultaneously will OOM on a T4.
+- **Generation time** — Expect 4–6 minutes per 10-second clip. Chunked generation (30s+) scales linearly.
 
 ---
 
 <div align="center">
 
-**Built with pride by [DamnKuldeep](https://github.com/DamnKuldeep)**
-Licensed under **Apache 2.0**
-
-[Back to top ↑](#ltx-video-13b--free-gen-pipeline)
+Built by [DamnKuldeep](https://github.com/DamnKuldeep) · [Apache 2.0](LICENSE)
 
 </div>
