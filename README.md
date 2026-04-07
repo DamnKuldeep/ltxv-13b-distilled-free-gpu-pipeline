@@ -1,6 +1,6 @@
 # LTX-Video 13B — Free GPU Pipeline
 
-Run the full 13-billion parameter LTX-Video model on **free Kaggle T4 GPUs**. Text-to-video, image-to-video, 22 swappable LoRA styles, and LLM prompt enhancement — zero cost, no A100 required.
+Run the full 13-billion parameter LTX-Video 13B Distilled model on **free Kaggle T4 GPUs**. Text-to-video, image-to-video, 22 swappable LoRA styles, and LLM prompt enhancement — zero cost, Fast generation, no A100 required.
 
 [![Open in Kaggle](https://img.shields.io/badge/Open_in-Kaggle-20BEFF?style=flat&logo=kaggle)](https://www.kaggle.com/code/damnyadav/ltxv-13b-distilled-free-gpu-pipeline)
 [![Model](https://img.shields.io/badge/%F0%9F%A4%97_Model-LTX--Video_13B-FFD21E?style=flat)](https://huggingface.co/Lightricks/LTX-Video-0.9.8-13B-distilled)
@@ -115,13 +115,13 @@ graph LR
 
 | GPU | Component | VRAM |
 |:---|:---|---:|
-| `cuda:0` | Transformer (NF4) | ~10.4 GB |
+| `cuda:0` | Transformer (NF4) | ~8.5 GB |
 | `cuda:0` | Active LoRA adapter | ~0.8 GB |
-| `cuda:0` | VAE encoder buffer | ~0.4 GB |
-| `cuda:0` | *Free headroom* | ~3.4 GB |
+| `cuda:0` | VAE encoder buffer | ~0.9 GB |
+| `cuda:0` | *Free headroom* | ~4.6 GB |
 | `cuda:1` | T5-XXL encoder (NF4) | ~4.5 GB |
-| `cuda:1` | VAE decode target | ~8.0 GB |
-| `cuda:1` | *Free headroom* | ~2.5 GB |
+| `cuda:1` | VAE decode target | ~10.0 GB |
+| `cuda:1` | *Free headroom* | ~0.5 GB |
 
 ### LoRA Hot-Swap Cycle
 
@@ -199,11 +199,11 @@ Go to **Add-ons → Secrets** in your notebook and add:
 
 ### Skip the Download (Optional)
 
-The first run downloads ~10 GB of model weights. To cut startup to ~2 minutes:
+The first run downloads ~80 GB of model weights. To cut startup to ~2 minutes:
 
 1. Click **+ Add Data** in your Kaggle notebook
 2. Search for `ltxv13b-distilled-cache` by `damnyadav`
-3. Add it — the notebook automatically detects and uses the cache
+3. Add it — the notebook automatically detects and uses the cache(or adjust the path in configuration cell)
 
 ### Launch
 
@@ -216,9 +216,9 @@ Set the notebook accelerator to **GPU T4 ×2**, then **Run All**. The Gradio UI 
 1. **Pick a LoRA** — Select from the dropdown, or leave as "None" for the base model.
 2. **Write a prompt** — Describe your scene naturally. Doesn't need to be perfect.
 3. **Enhance** — Click "Enhance Prompt". The LLM rewrites it into a detailed cinematic description.
-4. **Generate** — Click "Generate Video". Takes roughly 4–6 minutes for a 10-second clip.
+4. **Generate** — Click "Generate Video". Takes roughly 4-6 minutes for a 10-second clip.
 
-> **Tip:** Stick to **480p** when using LoRAs for stable VRAM. 720p is fine without adapters.
+> **Tip:** Stick to **480p** when using LoRAs for stable VRAM. 
 
 ---
 
@@ -245,9 +245,9 @@ The denoising loop uses a non-uniform 7-step schedule optimized for the distille
 
 ## Limitations
 
-- **Quantization trade-off** — NF4 compression loses some fine-grain detail compared to full FP16 on an A100. Most noticeable in faces and small text.
+- **Quantization trade-off** — NF4 compression loses some fine-grain detail compared to full FP16 on an A100. Most noticeable in reducing overlay texts in long duration generation.
 - **Prompt length** — The T5 encoder ignores tokens past ~65 words. Keep your prompts focused.
-- **One LoRA at a time** — Each adapter uses ~805 MB of VRAM. Loading two simultaneously will OOM on a T4.
+- **One LoRA at a time** — Each adapter uses ~805 MB of VRAM. Loading two simultaneously might go OOM on a T4.
 - **Generation time** — Expect 4–6 minutes per 10-second clip. Chunked generation (30s+) scales linearly.
 
 ---
