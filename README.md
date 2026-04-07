@@ -31,82 +31,52 @@ Every clip below was generated on a free Kaggle T4×2 notebook. No paid compute,
 <table>
 <tr>
 <td width="50%" align="center">
-
-![Character Walk — Snorricam LoRA](results/Character_Walk.mp4)
-
-**Snorricam** · Character Walk
-
+<strong>Snorricam · Character Walk</strong><br>
+<video src="https://github.com/DamnKuldeep/ltxv-13b-distilled-free-gpu-pipeline/raw/main/results/Character_Walk.mp4" controls muted width="100%"></video>
 </td>
 <td width="50%" align="center">
-
-![City Timelapse — Base T2V](results/City_Timelapse.mp4)
-
-**Base T2V** · City Timelapse
-
+<strong>Base T2V · City Timelapse</strong><br>
+<video src="https://github.com/DamnKuldeep/ltxv-13b-distilled-free-gpu-pipeline/raw/main/results/City_Timelapse.mp4" controls muted width="100%"></video>
 </td>
 </tr>
 <tr>
 <td align="center">
-
-![Coastal Cliffs — Flying LoRA](results/Coastal_Cliff.mp4)
-
-**Flying** · Coastal Cliffs
-
+<strong>Flying · Coastal Cliffs</strong><br>
+<video src="https://github.com/DamnKuldeep/ltxv-13b-distilled-free-gpu-pipeline/raw/main/results/Coastal_Cliff.mp4" controls muted width="100%"></video>
 </td>
 <td align="center">
-
-![Martial Arts — Bullet Time LoRA](results/Martial_Arts_Freeze.mp4)
-
-**Bullet Time** · Martial Arts
-
+<strong>Bullet Time · Martial Arts</strong><br>
+<video src="https://github.com/DamnKuldeep/ltxv-13b-distilled-free-gpu-pipeline/raw/main/results/Martial_Arts_Freeze.mp4" controls muted width="100%"></video>
 </td>
 </tr>
 <tr>
 <td align="center">
-
-![Jinx with Headphones — Arcane LoRA](results/Headphones_jinx.mp4)
-
-**Arcane Style** · Jinx
-
+<strong>Arcane Style · Jinx</strong><br>
+<video src="https://github.com/DamnKuldeep/ltxv-13b-distilled-free-gpu-pipeline/raw/main/results/Headphones_jinx.mp4" controls muted width="100%"></video>
 </td>
 <td align="center">
-
-![Jinx Portrait — Character LoRA](results/Jinx.mp4)
-
-**Character** · Jinx Portrait
-
+<strong>Character · Jinx Portrait</strong><br>
+<video src="https://github.com/DamnKuldeep/ltxv-13b-distilled-free-gpu-pipeline/raw/main/results/Jinx.mp4" controls muted width="100%"></video>
 </td>
 </tr>
 <tr>
 <td align="center">
-
-![Kitchen Scene — Wallace & Gromit LoRA](results/Kitchen_scene_walgro.mp4)
-
-**Wallace & Gromit** · Kitchen
-
+<strong>Wallace &amp; Gromit · Kitchen</strong><br>
+<video src="https://github.com/DamnKuldeep/ltxv-13b-distilled-free-gpu-pipeline/raw/main/results/Kitchen_scene_walgro.mp4" controls muted width="100%"></video>
 </td>
 <td align="center">
-
-![Garden Scene — Wallace & Gromit LoRA](results/Walgro_Garden.mp4)
-
-**Wallace & Gromit** · Garden
-
+<strong>Wallace &amp; Gromit · Garden</strong><br>
+<video src="https://github.com/DamnKuldeep/ltxv-13b-distilled-free-gpu-pipeline/raw/main/results/Walgro_Garden.mp4" controls muted width="100%"></video>
 </td>
 </tr>
 <tr>
 <td align="center">
-
-![Rooftop Scene — Arcane LoRA](results/RooftopSky.mp4)
-
-**Arcane Style** · Rooftop
-
+<strong>Arcane Style · Rooftop</strong><br>
+<video src="https://github.com/DamnKuldeep/ltxv-13b-distilled-free-gpu-pipeline/raw/main/results/RooftopSky.mp4" controls muted width="100%"></video>
 </td>
 <td align="center">
-
-![Train Window — Base T2V](results/Train_window.mp4)
-
-**Base T2V** · Train Window
-
+<strong>Base T2V · Train Window</strong><br>
+<video src="https://github.com/DamnKuldeep/ltxv-13b-distilled-free-gpu-pipeline/raw/main/results/Train_window.mp4" controls muted width="100%"></video>
 </td>
 </tr>
 </table>
