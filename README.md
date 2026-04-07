@@ -40,13 +40,15 @@
 
 <div align="center">
 
+<!-- Cache Refresh: 2026-04-07 13:00:10 -->
+
 | Showcase A | Showcase B |
 | :---: | :---: |
-| <video src="results/Character_Walk.mp4" autoplay loop muted playsinline width="100%"></video><br><sub>**Snorricam**: Character Walk</sub> | <video src="results/City_Timelapse.mp4" autoplay loop muted playsinline width="100%"></video><br><sub>**T2V**: City Timelapse</sub> |
-| <video src="results/Coastal_Cliff.mp4" autoplay loop muted playsinline width="100%"></video><br><sub>**Flying**: Coastal Cliffs</sub> | <video src="results/Martial_Arts_Freeze.mp4" autoplay loop muted playsinline width="100%"></video><br><sub>**Bullet Time**: Martial Arts</sub> |
-| <video src="results/Headphones_jinx.mp4" autoplay loop muted playsinline width="100%"></video><br><sub>**Arcane**: Jinx with Headphones</sub> | <video src="results/Jinx.mp4" autoplay loop muted playsinline width="100%"></video><br><sub>**Character**: Jinx Portrait</sub> |
-| <video src="results/Kitchen_scene_walgro.mp4" autoplay loop muted playsinline width="100%"></video><br><sub>**Wallace & Gromit**: Kitchen</sub> | <video src="results/Walgro_Garden.mp4" autoplay loop muted playsinline width="100%"></video><br><sub>**Wallace & Gromit**: Garden</sub> |
-| <video src="results/RooftopSky.mp4" autoplay loop muted playsinline width="100%"></video><br><sub>**Arcane**: Rooftop Scene</sub> | <video src="results/Train_window.mp4" autoplay loop muted playsinline width="100%"></video><br><sub>**T2V**: Train Window</sub> |
+| ![Snorricam: Character Walk](results/Character_Walk.mp4)<br><sub>**Snorricam**: Character Walk</sub> | ![T2V: City Timelapse](results/City_Timelapse.mp4)<br><sub>**T2V**: City Timelapse</sub> |
+| ![Flying: Coastal Cliffs](results/Coastal_Cliff.mp4)<br><sub>**Flying**: Coastal Cliffs</sub> | ![Bullet Time: Martial Arts](results/Martial_Arts_Freeze.mp4)<br><sub>**Bullet Time**: Martial Arts</sub> |
+| ![Arcane: Jinx with Headphones](results/Headphones_jinx.mp4)<br><sub>**Arcane**: Jinx with Headphones</sub> | ![Character: Jinx Portrait](results/Jinx.mp4)<br><sub>**Character**: Jinx Portrait</sub> |
+| ![Wallace & Gromit: Kitchen](results/Kitchen_scene_walgro.mp4)<br><sub>**Wallace & Gromit**: Kitchen</sub> | ![Wallace & Gromit: Garden](results/Walgro_Garden.mp4)<br><sub>**Wallace & Gromit**: Garden</sub> |
+| ![Arcane: Rooftop Scene](results/RooftopSky.mp4)<br><sub>**Arcane**: Rooftop Scene</sub> | ![T2V: Train Window](results/Train_window.mp4)<br><sub>**T2V**: Train Window</sub> |
 
 </div>
 
