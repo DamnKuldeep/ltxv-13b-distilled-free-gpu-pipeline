@@ -1,7 +1,0 @@
-*.pyc
-__pycache__
-.ipynb_checkpoints
-/tmp/
-*.safetensors
-*.mp4
-!results/*.mp4
