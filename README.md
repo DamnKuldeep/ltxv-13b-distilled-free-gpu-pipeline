@@ -3,6 +3,7 @@
 <img src="assets/logo.png" width="120" alt="LTXV-13B Logo">
 
 # LTX-Video 13B • Free Gen Pipeline
+
 ### 15s Native • 30s+ Chunked • 22 LoRAs • Dual Tesla T4
 
 [![Python 3.10+](https://img.shields.io/badge/Python-3.10+-3776AB?style=flat-square&logo=python&logoColor=white)](https://www.python.org/)
@@ -23,6 +24,7 @@
 </div>
 
 ## 📑 Table of Contents
+
 - [✨ High-Fidelity Results](#-high-fidelity-results)
 - [🔥 Capability Matrix](#-capability-matrix)
 - [🏗️ Technical Architecture](#-technical-architecture)
@@ -40,11 +42,11 @@
 
 | Showcase A | Showcase B |
 | :---: | :---: |
-| <video src="https://github.com/DamnKuldeep/ltxv-13b-distilled-free-gpu-pipeline/raw/main/results/Character_Walk.mp4" autoplay loop muted playsinline width="100%"></video><br><sub>**Snorricam**: Character Walk</sub> | <video src="https://github.com/DamnKuldeep/ltxv-13b-distilled-free-gpu-pipeline/raw/main/results/City_Timelapse.mp4" autoplay loop muted playsinline width="100%"></video><br><sub>**T2V**: City Timelapse</sub> |
-| <video src="https://github.com/DamnKuldeep/ltxv-13b-distilled-free-gpu-pipeline/raw/main/results/Coastal_Cliff.mp4" autoplay loop muted playsinline width="100%"></video><br><sub>**Flying**: Coastal Cliffs</sub> | <video src="https://github.com/DamnKuldeep/ltxv-13b-distilled-free-gpu-pipeline/raw/main/results/Martial_Arts_Freeze.mp4" autoplay loop muted playsinline width="100%"></video><br><sub>**Bullet Time**: Martial Arts</sub> |
-| <video src="https://github.com/DamnKuldeep/ltxv-13b-distilled-free-gpu-pipeline/raw/main/results/Headphones_jinx.mp4" autoplay loop muted playsinline width="100%"></video><br><sub>**Arcane**: Jinx with Headphones</sub> | <video src="https://github.com/DamnKuldeep/ltxv-13b-distilled-free-gpu-pipeline/raw/main/results/Jinx.mp4" autoplay loop muted playsinline width="100%"></video><br><sub>**Character**: Jinx Portrait</sub> |
-| <video src="https://github.com/DamnKuldeep/ltxv-13b-distilled-free-gpu-pipeline/raw/main/results/Kitchen_scene_walgro.mp4" autoplay loop muted playsinline width="100%"></video><br><sub>**Wallace & Gromit**: Kitchen</sub> | <video src="https://github.com/DamnKuldeep/ltxv-13b-distilled-free-gpu-pipeline/raw/main/results/Walgro_Garden.mp4" autoplay loop muted playsinline width="100%"></video><br><sub>**Wallace & Gromit**: Garden</sub> |
-| <video src="https://github.com/DamnKuldeep/ltxv-13b-distilled-free-gpu-pipeline/raw/main/results/RooftopSky.mp4" autoplay loop muted playsinline width="100%"></video><br><sub>**Arcane**: Rooftop Scene</sub> | <video src="https://github.com/DamnKuldeep/ltxv-13b-distilled-free-gpu-pipeline/raw/main/results/Train_window.mp4" autoplay loop muted playsinline width="100%"></video><br><sub>**T2V**: Train Window</sub> |
+| <video src="https://media.githubusercontent.com/media/DamnKuldeep/ltxv-13b-distilled-free-gpu-pipeline/main/results/Character_Walk.mp4" autoplay loop muted playsinline width="100%"></video><br><sub>**Snorricam**: Character Walk</sub> | <video src="https://media.githubusercontent.com/media/DamnKuldeep/ltxv-13b-distilled-free-gpu-pipeline/main/results/City_Timelapse.mp4" autoplay loop muted playsinline width="100%"></video><br><sub>**T2V**: City Timelapse</sub> |
+| <video src="https://media.githubusercontent.com/media/DamnKuldeep/ltxv-13b-distilled-free-gpu-pipeline/main/results/Coastal_Cliff.mp4" autoplay loop muted playsinline width="100%"></video><br><sub>**Flying**: Coastal Cliffs</sub> | <video src="https://media.githubusercontent.com/media/DamnKuldeep/ltxv-13b-distilled-free-gpu-pipeline/main/results/Martial_Arts_Freeze.mp4" autoplay loop muted playsinline width="100%"></video><br><sub>**Bullet Time**: Martial Arts</sub> |
+| <video src="https://media.githubusercontent.com/media/DamnKuldeep/ltxv-13b-distilled-free-gpu-pipeline/main/results/Headphones_jinx.mp4" autoplay loop muted playsinline width="100%"></video><br><sub>**Arcane**: Jinx with Headphones</sub> | <video src="https://media.githubusercontent.com/media/DamnKuldeep/ltxv-13b-distilled-free-gpu-pipeline/main/results/Jinx.mp4" autoplay loop muted playsinline width="100%"></video><br><sub>**Character**: Jinx Portrait</sub> |
+| <video src="https://media.githubusercontent.com/media/DamnKuldeep/ltxv-13b-distilled-free-gpu-pipeline/main/results/Kitchen_scene_walgro.mp4" autoplay loop muted playsinline width="100%"></video><br><sub>**Wallace & Gromit**: Kitchen</sub> | <video src="https://media.githubusercontent.com/media/DamnKuldeep/ltxv-13b-distilled-free-gpu-pipeline/main/results/Walgro_Garden.mp4" autoplay loop muted playsinline width="100%"></video><br><sub>**Wallace & Gromit**: Garden</sub> |
+| <video src="https://media.githubusercontent.com/media/DamnKuldeep/ltxv-13b-distilled-free-gpu-pipeline/main/results/RooftopSky.mp4" autoplay loop muted playsinline width="100%"></video><br><sub>**Arcane**: Rooftop Scene</sub> | <video src="https://media.githubusercontent.com/media/DamnKuldeep/ltxv-13b-distilled-free-gpu-pipeline/main/results/Train_window.mp4" autoplay loop muted playsinline width="100%"></video><br><sub>**T2V**: Train Window</sub> |
 
 </div>
 
@@ -65,6 +67,7 @@
 ## 🏗️ Technical Architecture
 
 ### 1. Generation Lifecycle
+
 ```mermaid
 %%{init: {'theme': 'dark', 'themeVariables': { 'primaryColor': '#6f42c1', 'secondaryColor': '#2ea44f', 'tertiaryColor': '#d73a49' }}}%%
 graph LR
@@ -80,6 +83,7 @@ graph LR
 ```
 
 ### 2. Physical Memory Mapping
+
 ```mermaid
 %%{init: {'theme': 'dark'}}%%
 graph TD
@@ -97,6 +101,7 @@ graph TD
 ```
 
 ### 3. Progressive LoRA Lifecycle
+
 ```mermaid
 %%{init: {'theme': 'dark'}}%%
 sequenceDiagram
@@ -144,11 +149,13 @@ sequenceDiagram
 ## 🛠️ Setup Guide
 
 ### 1. Requirements
+
 - **Kaggle Account**: [Sign up here](https://kaggle.com) (Phone verification required for GPU).
 - **Hardware Selection**: Set Accelerator to **GPU T4 ×2**.
 - **Model Access**: Agree to terms on [Lightricks LTX-Video 0.9.8](https://huggingface.co/Lightricks/LTX-Video-0.9.8-13B-distilled).
 
 ### 2. Environment Variables (Secrets)
+
 Add these to your Kaggle Notebook via **Add-ons -> Secrets**:
 
 | Key | Value | Purpose |
@@ -157,7 +164,9 @@ Add these to your Kaggle Notebook via **Add-ons -> Secrets**:
 | `NIM_API_KEY` | [NVIDIA NIM API Key](https://build.nvidia.com) | AI Prompt Enhancement |
 
 ### 3. Accelerating Launch
+
 To skip the 10-minute download phase, use the pre-cached dataset:
+
 1. Click **+ Add Data** in your notebook.
 2. Search for: `ltxv13b-distilled-cache` by `damnyadav`.
 3. The notebook will automatically prioritize this cache for ~2 minute startups.
@@ -194,6 +203,7 @@ To skip the 10-minute download phase, use the pre-cached dataset:
 ---
 
 ## ⚠️ Constraints
+
 - **Quantization**: NF4 compression may result in minor detail loss compared to 40GB FP16 mode.
 - **T5 Limits**: The T5 encoder ignores everything beyond ~65 words. Keep prompts punchy.
 - **VRAM Budget**: Each active LoRA consumes ~805MB. Running 2+ simultaneous LoRAs will likely trigger **OOM**.
